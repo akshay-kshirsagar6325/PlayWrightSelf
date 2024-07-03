@@ -1,0 +1,19 @@
+Playwright
+
+-to install playwright: npm init playwright
+-javascript is asynchronous
+-return type of variables can be let or const
+-we don't need to add any wait
+-to install playwright: npm init playwright
+-Debug using the playwright inspector : npx playwright test {file name} -- debug
+-Recording a script: npx playwright codegen http://google.com
+-playwright html reporter and traces
+-we can wright locator base on the text (text can be changed): locator('text=Add To Cart') 
+-Locator base on tag & text: locator('h3:has-text (ADIDAS ORIGINAL)').isVisible();
+
+
+-Debugger:
+ [fn + F8] or [ctrl+shift+p > type focus > select emaluate rendering]
+
+-Dropdowns:
+  1. Static & Dyanamic dropdowns
