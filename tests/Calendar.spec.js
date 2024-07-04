@@ -18,6 +18,7 @@ test('Calendar testing', async ({page})=>
     const inputs = await page.locator('.react-date-picker__inputGroup input'); // "class value <space> common tagname(input)" 
     
     for (let index=0; index < inputs; index++) 
+        
         {
             const value = inputs[index].getAttribute("value"); //one element out of four is hidden element so playwright will skip it
             expect(value).toEqual(expectedList[index]);
