@@ -1,5 +1,8 @@
 name: hello-world
-on: workflow_dispatch
+on: 
+    push: 
+    branches:
+      - branch3-new-changes
 jobs:
   my-job:
     runs-on: windows-latest
