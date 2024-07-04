@@ -19,11 +19,18 @@ test.beforeAll( async ()=>
 
 });
 
-test('Api testing', async ()=>{
+test('Api testing part 1', async ({page})=>{
 
-    const userName = page.locator('#userEmail');
-    const passWord = page.locator('#userPassword');
-    const signInButton = page.locator('[value="Login"]');
+
+    await page.addInitScript(value =>{
+        window.localStorage.setItem('token', value);     //key-value pair....key is token and value will be token value
+    }, token );
+
+    await page.goto('https://rahulshettyacademy.com/client/');
+
+    // const userName = page.locator('#userEmail');
+    // const passWord = page.locator('#userPassword');
+    // const signInButton = page.locator('[value="Login"]');
     const products = page.locator('.card-body');
     const productName = ('ADIDAS ORIGINAL');
     const cart = page.locator('[routerlink="/dashboard/cart"]');
@@ -37,13 +44,14 @@ test('Api testing', async ()=>{
     //const orderList = page.locator('tbody tr') // or('tr.ng-star-inserted'); //
 
 
-    page.goto('https://rahulshettyacademy.com/client/');
-    await userName.fill(email);
-    await passWord.fill("Akshay@6325");
-    await signInButton.click();
-    await page.waitForLoadState('networkidle');
+    //commenting out the login information and using the API token directly to login into the app to save the time
+
+    // await userName.fill(email);
+    // await passWord.fill("Akshay@6325");
+    // await signInButton.click();
+    //await page.waitForLoadState('networkidle');
     const count = await products.count();
-    
+
 
     //for loop to identify the desire product
     for (let i=0; i < count; ++i)
@@ -114,7 +122,7 @@ test('Api testing', async ()=>{
          const orderIdDetails = await page.locator(".col-text").textContent();
          expect(orderIds.includes(orderIdDetails)).toBeTruthy();
 
-        await page.pause();
+        //await page.pause();
 
 
 })
