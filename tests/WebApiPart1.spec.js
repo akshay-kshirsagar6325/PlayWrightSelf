@@ -114,7 +114,7 @@ test('Api testing', async ()=>{
          const orderIdDetails = await page.locator(".col-text").textContent();
          expect(orderIds.includes(orderIdDetails)).toBeTruthy();
 
-        //await page.pause();
+        await page.pause();
 
 
 })
