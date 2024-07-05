@@ -22,7 +22,7 @@ test('ClientTest', async ({page})=>
 
 })
 
-test('e2e testing', async ({page})=>{
+test.only('e2e testing', async ({page})=>{
 
     const userName = page.locator('#userEmail');
     const passWord = page.locator('#userPassword');
@@ -123,7 +123,7 @@ test('e2e testing', async ({page})=>{
 
 
 
-        test.only('table and dropdown testing', async ({page})=>{
+        test('table and dropdown testing', async ({page})=>{
 
             //const tablePrice = page.locator('#product:nth-child(2) tr:nth-child(6) td:nth-child(3)');
             //const tableCity = page.locator('#product:nth-child(1) tr:nth-child(5) td:nth-child(3)');
