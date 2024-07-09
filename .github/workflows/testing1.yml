@@ -1,0 +1,12 @@
+name: step context
+on: workflow_dispatch
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Step 1
+      id: step1
+      run: echo "hello" > hello.txt
+    - name: Step 2
+      run: cat hello.txt
+      if: ${{ steps.step1.conclusion == 'success' }}

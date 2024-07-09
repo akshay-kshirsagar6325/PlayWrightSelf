@@ -1,0 +1,19 @@
+name: Global and Local Variable Test
+on: workflow_dispatch
+env:
+  GLOBAL_VAR: hello
+ 
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    env:
+      JOB_VAR: world
+    steps:
+    - name: Print variables
+      run: echo ${{ env.GLOBAL_VAR }} ${{ env.JOB_VAR }}
+ 
+  Build2:
+     runs-on: windows-latest
+     steps:
+      - name: testing global var
+        run: echo ${{ env.GLOBAL_VAR }}
