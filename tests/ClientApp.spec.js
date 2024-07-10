@@ -22,7 +22,7 @@ test('ClientTest', async ({page})=>
 
 })
 
-test('e2e testing', async ({page})=>{
+test.only('e2e testing', async ({page})=>{
 
     const userName = page.locator('#userEmail');
     const passWord = page.locator('#userPassword');
