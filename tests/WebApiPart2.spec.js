@@ -5,8 +5,6 @@ let webContext;
 
 test.beforeAll(async ({browser})=>{
 
-
-
     const context = await browser.newContext();
     const page = await context.newPage();
 
@@ -36,14 +34,12 @@ test('API part2 testing', async ()=>{
     const productName = ('ADIDAS ORIGINAL');
     const cart = page.locator('[routerlink="/dashboard/cart"]');
     const checkOut = page.locator("button[type='button']"); //or page.locator('text=Checkout')
+    
     // const dropDown = page.locator('.ta-results');
     // const emailVerification = page.locator(".user__name [type='text']"); // parent to child locator "class [attribute='value']"
-    
     // const placeOrderBtn = page.locator('.action__submit');
     // const thankYouMsg = page.locator('.hero-primary');
-    // const orderId = page.locator('.em-spacer-1 .ng-star-inserted'); 
-
-    
+    // const orderId = page.locator('.em-spacer-1 .ng-star-inserted');
 
     //parent to child locator '.class .class'
     //const orderList = page.locator('tbody tr') // or('tr.ng-star-inserted'); //

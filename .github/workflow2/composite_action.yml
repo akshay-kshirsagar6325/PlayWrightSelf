@@ -1,0 +1,20 @@
+name: COMPOSITE_ACTION
+on: workflow_dispatch
+jobs:
+  FIRST-JOB:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: calling composite custom action
+        id: comp
+        uses: ./.github/actions/test_composite_action
+        with:
+          name: "shamsoddin"
+
+      - name: print variable output value
+        run: echo "output value is - ${{ steps.comp.outputs.number }}"
+
+      - name: print github env var value
+        run: echo " sum is - $sum"

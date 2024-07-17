@@ -1,0 +1,26 @@
+name: "TESTING_COMPOSITE_SCRIPT"
+on: workflow_dispatch
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: "checkout repository"
+        uses: actions/checkout@v4
+
+      - name: calling_custom_action
+        id: custom_action
+        uses: ./.github/actions/composite_action_script
+        with:
+          A: 4
+          B: 2
+
+      - name: outcomes of preious step
+        if: steps.custom_action.outcome == 'success'
+        run: echo "prevois step has been passed"
+
+      - name: printing result of calling_custom_action
+        run: |
+          echo "addition is - ${{ steps.custom_action.outputs.addition }}"
+          echo "subtract is - ${{ steps.custom_action.outputs.subtract }}"
+          echo "multiply is - ${{ steps.custom_action.outputs.multiply }}"
+          echo "division is - ${{ steps.custom_action.outputs.division }}"
