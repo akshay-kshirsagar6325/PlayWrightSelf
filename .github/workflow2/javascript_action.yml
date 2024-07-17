@@ -1,0 +1,21 @@
+name: JAVASCRIPT_ACTION
+on: workflow_dispatch
+jobs:
+  Test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout
+        uses: actions/checkout@v4
+
+      - name: install deps
+        run: |
+          npm install @actions/core
+
+      - name: calling javascript action
+        id: hello
+        uses: ./.github/actions/javascript_custom_action
+        with:
+          name: 'Samir'
+
+      - name: print the output name
+        run: echo "Output name was ${{ steps.hello.outputs.user_name }}"

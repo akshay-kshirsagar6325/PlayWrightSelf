@@ -1,0 +1,24 @@
+name: "DOKCER_CUSTOME_ACTION_USING_BASH"
+on:
+  workflow_dispatch:
+jobs:
+  TEST:
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout
+        uses: actions/checkout@v4
+
+      - name: perform addition
+        id: addition_custom
+        uses: ./.github/actions/docker_custom_action_bash
+        with:
+          var1: 15
+          var2: 15
+
+      - name: print GITHUB_OUTPUT variable value
+        run: |
+          echo "Output variable value is - ${{steps.addition_custom.outputs.sum}}"
+
+      - name: Print GITHUB_ENV variable value
+        run: |
+          echo "Env variable value is - $add"

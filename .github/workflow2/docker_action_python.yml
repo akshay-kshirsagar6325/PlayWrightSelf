@@ -1,0 +1,20 @@
+name: "DOCKER_CUSTOM_ACTION_USING_PYTHON"
+on:
+  workflow_dispatch:
+jobs:
+  Test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout
+        uses: actions/checkout@v4
+
+      - name: Running custom actions
+        id: custom_step
+        uses: ./.github/actions/docker_custom_action_python
+        with:
+          num1: 10
+          num2: 15
+
+      - name: print output
+        run: |
+          echo "The output is - ${{steps.custom_step.outputs.res}}"
